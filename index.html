@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pizzeria</title>
+  </head>
+  <body>
+    <div class="container">
+
+
+
+        <div class="main-dash">
+          <!-- <img src="images/" alt="logo"> -->
+          <p class="main-dash-padding">order online</p>
+          <p class="main-dash-padding">Menu</p>
+          <p class="main-dash-padding">copons</p>
+          <p class="main-dash-padding">Sign in</p>
+          <p class="main-dash-padding"><a href=""><img src="images/cart1.png" width="30px" height="30px"></a></p>
+          <h1 float="right">Pizzeria</h1>
+        </div>
+
+
+        <form id="order">
+
+          <div class="row">
+            <div class="order-type flex-img">
+              <img class="delivery float-left" src="images/del.png" alt= "delivery photo" width="550px" height="550px"></a></p>
+              <img class="to-go float-left" src="images/to-go.png" alt= "to go photo" width="550px" height="550px"></a></p>
+            </div>
+          </div> <!-- for the row -->
+
+            <!-- <div class="col-lg-6"> -->
+          <div class="row selections">
+            <div class="name ">
+              <div class="form-group">
+                <label for="name">Enter Your Name</label>
+                <input type="text" id="name" class="form-control">
+              </div>
+            </div>
+
+            <div class="address">
+              <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control new-street">
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control new-city">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control new-state">
+              </div>
+              <br>
+            </div> <!-- for the new-address -->
+
+              <button class="next" id="next" type="button">Next</button>
+            </div>    <!-- for the row -->
+
+            <br>
+            <br>
+
+
+            <div id="build-your-own">
+
+              <div class="size-crust">
+                <div class="row backs-nexts">
+                  <button class="back backs-margin" id="back-to-start">Back</button>
+                  <button class="next nexts-margin" id="next-cheese-sauce">Cheese & Sauce</button>
+                </div><br><br>
+
+
+                <div class="row selections">
+                  <div class="col-md-6">
+                    <div class="choose-size">
+                      <p class="labels">CHOOSE YOUR SIZE</p> <br> <br>
+                      <input type="checkbox" name="size" value="small">small.<br><br>
+                      <input type="checkbox" name="size" value="mediam">mediam.<br><br>
+                      <input type="checkbox" name="size" value="large">large.<br><br>
+                    </div>
+                  </div> <!-- for the col6 -->
+
+                  <div class="col-md-6">
+                    <div class="choose-crust">
+                      <p class="labels">CHOOSE YOUR CRUST</p> <br> <br>
+
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="crust" value="hand-tossed">
+                          Hand Tossed.
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="crust" value="crunchy">
+                          Crunchy Thin Crust.
+                        </label>
+                      </div>
+
+                    </div> <!-- for the choose-crust -->
+                  </div> <!-- for the col6 -->
+
+                </div> <!-- for the row -->
+              </div> <!-- for the size-crust -->
+
+
+
+
+              <div class="choose-cheese-sauce">
+                <div class="row backs-nexts">
+                  <button class="back backs-margin" id="back-to-size">Back</button>
+                  <button class="next nexts-margin" id="next-toppings">Meats & Non-Meats</button>
+                </div><br><br>
+                <div class="row  selections">
+                  <div class="col-md-6">
+
+                    <div class="choose-cheese">
+                      <p class="labels">Choose your toppings:</p> <br> <br>
+                      <input type="checkbox" name="cheese" value="cheese" checked>Cheese.<br><br>
+
+                      <select class="form-control" id="cheese-amount">
+                        <option>None</option>
+                        <option>Light</option>
+                        <option>Normal</option>
+                        <option>Extra</option>
+                      </select>
+
+                    </div> <!-- for the coose cheese -->
+                  </div> <!-- for the col6 -->
+
+                    <div class="col-md-6">
+                      <div class="choose-sauce">
+                        <p class="labels">CHOOSE YOUR SAUCE</p> <br> <br>
+
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sauce" value="tomato-sauce" checked>
+                            Tomato Sauce
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sauce" value="bbq-sauce">
+                            BBQ saucce
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sauce" value="garlic-sauce">
+                            Garlic Parmesan White Sauce
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sauce" value="alfredo-sauce">
+                            Alfredo Sauce
+                          </label>
+                        </div>  <!-- for the class radio -->
+                    </div> <!-- for the choose sauce -->
+                  </div> <!-- for the col6 -->
+
+                </div> <!-- for the row -->
+
+              </div> <!-- for the choose-cheese-sauce -->
+
+
+
+
+
+            <div class="meats-non-meats">
+              <div class="row backs-nexts">
+              <!-- <button class="next" id="next-toppings">meet & non-meets</button> -->
+                <button class="back backs-margin" id="back-to-sauce">Back</button>
+              </div>
+              <br><br>
+              <div class="row  selections">
+                <div class="col-md-6 meats-toppings">
+                  <div class="form-group">
+                    <p class="labels">CHOOSE MEATS</p> <br> <br>
+                      <input type="checkbox" name="meats" value="chicken"> Chicken.<br><br>
+                      <input type="checkbox" name="meats" value="pepporoni"> Pepporoni.<br><br>
+                      <input type="checkbox" name="meats" value="beef">Beef.<br><br>
+                      <input type="checkbox" name="meats" value="sausage">Sausage.<br><br>
+                  </div>
+                </div>
+                <div class="non-meats">
+
+                  <div class="col-md-3">
+                    <p class="labels">CHOOSE NON-MEATS </p><br><br>
+                    <div class="form-group selections">
+
+                      <input type="checkbox" name="non-meats" value="Hot Sauce">Hot Sauce.<br><br>
+                      <input type="checkbox" name="non-meats" value="Garlic">Garlic.<br><br>
+                      <input type="checkbox" name="non-meats" value="Jalapeno-Peppers">Jalapeno Peppers.<br><br>
+                      <input type="checkbox" name="non-meats" value="Onions">Onions.<br><br>
+                      <input type="checkbox" name="non-meats" value="Banana Peppers">Banana Peppers.<br><br>
+                      <input type="checkbox" name="non-meats" value="Diced Tomatos">Diced Tomatos.<br><br>
+                      <input type="checkbox" name="non-meats" value="Tomatos">Tomatos.<br><br>
+                      <input type="checkbox" name="non-meats" value="Black Olives">Black Olives.<br><br>
+                      <input type="checkbox" name="non-meats" value="red Peppers">red Peppers.<br><br>
+                      <input type="checkbox" name="non-meats" value="Spinach">Spinach.<br><br>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <br><br><br><br>
+                      <input type="checkbox" name="non-meats" value="Green Peppers">Green Peppers.<br><br>
+                      <input type="checkbox" name="non-meats" value="Mushrooms">Mushrooms.<br><br>
+                      <input type="checkbox" name="non-meats" value="Green Olives">Green Olives.<br><br>
+                      <input type="checkbox" name="non-meats" value="Pineapple">Pineapple.<br><br>
+                      <input type="checkbox" name="non-meats" value="Shredded Provolone Cheese">Shredded Provolone Cheese.<br><br>
+                      <input type="checkbox" name="non-meats" value="Shredded Parmesan Asiago">Shredded Parmesan Asiago.<br><br>
+                      <input type="checkbox" name="non-meats" value="Feta Cheese">Feta Cheese.<br><br>
+                      <input type="checkbox" name="non-meats" value="Cheddar Cheese">Cheddar Cheese.<br><br>
+                    </div>
+                  </div> <!-- for the col6 -->
+
+                </div> <!-- for the non-meats -->
+              </div>   <!-- for the row -->
+            </div>   <!-- for the meats and non meats -->
+
+
+              <!-- <div class="choose-toppings"></div> -->
+
+              <button type="submit" id="submit">Submit Your Order</button>
+            </div> <!-- for the build your own -->
+
+              <!-- <span class="btn btn-primary" id="add-address">Another address</span> -->
+
+              <!-- <button type="submit" class="btn">Add</button> -->
+          </form>
+
+    </div>
+  </body>
+</html>
