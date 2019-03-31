@@ -1,26 +1,28 @@
 function Cart (){
   this.orders = [];
-  this.ordersType = ["Delivery" , "Carry Out"]
+  this.ordersType = ["Delivery" , "Carry Out"];
+  this.total =0;
 }
 
 Cart.prototype.addOrder = function(order){
   this.orders.push(pizza);
 }
-Cart.prototype.CountTotal = function(){
+
+Cart.prototype.countTotal = function(){
   total = 0;
   this.orders.forEach(function(order){
     tottal += order.price()
   });
 }
-function Pizza (cheese){
+function Pizza(){
   this.cost=0;
   this.sizes = ["small", "mediam", "large"];
   this.crust = ["hand tossed","crunchy thin crust"];
   this.sauce = ["BBQ Saucce","Tomato Sauce","Alfredo Sauce","Garlic Parmesan White Sauce"];
-  this.cheese = cheese;
+  this.cheese = ["none","light","normal","extra"];
   this.meatToppings = ["Chicken","Pepporoni","Beef","Sausage"];
   this.nonMeatToppings = ["Hot Sauce","Garlic","Jalapeno Peppers","Onions",
-  "Banana Peppers",
+                          "Banana Peppers",
                              "Diced Tomatos","Tomatos","Black Olives",
                              "Red Peppers","Spinach",
                              "Green Peppers","Mushrooms","Green Olives",
@@ -70,25 +72,6 @@ Pizza.prototype.price=function(){
   function reset(){
     $("#new-contact")[0].reset();
 }
-
-
-
-
-      // $("#new-addresses").append(
-    //     '<div class="new-ones new-address">'+
-    //       '<div class="form-group">'+
-    //       '<label for="new-street">Street</label>'+
-    //       '<input type="text" class="form-control new-street">'+
-    //     '</div>'+
-    //     '<div class="form-group">'+
-    //       '<label for="new-city">City</label>'+
-    //       '<input type="text" class="form-control new-city">'+
-    //     '</div>'+
-    //     '<div class="form-group">'+
-    //       '<label for="new-state">State</label>'+
-    //       '<input type="text" class="form-control new-state">'+
-    //     '</div>'+
-    //   '</div>');
 
 
 $(document).ready(function(){
@@ -178,20 +161,7 @@ $(document).ready(function(){
     $("#submit").hide();
   });
 
-  var newCart = new Cart();
-  var newOrder = new Pizza();
 
-    // $(".new-address").each(function(){
-    //   var inputtedStreet = $(this).find("input.new-street").val();
-    //   var inputtedCity = $(this).find("input.new-city").val();
-    //   var inputtedState = $(this).find("input.new-state").val();
-    //
-    //   console.log(inputtedStreet+", "+inputtedCity+", "+inputtedState);
-    //   var newAddress = new Address(inputtedStreet,inputtedCity,inputtedState);
-    //   newContact.addresses.push(newAddress);
-    // });
-    // newAddressBook.addContact(newContact);
-    // console.log(newAddressBook);
     $(".delivery").click(function(){
       $(".name").show();
       $("#new-address").show();
@@ -205,15 +175,54 @@ $(document).ready(function(){
 
     });
 
-
-    $("#enter-address").click(function(){
+    $("#enter-address").click(function(event){
+      event.preventDefault();
       $("#new-address").hide();
       $(".main-photo").hide();
       $("#build-your-own").show();
     });
 
+    var pizzaCounter=0;
+
+    $("button.new-pizza").click(function(event){
+      event.preventDefault();
+      $("#submit").hide();
+      $("#back-to-sauce").hide();
+      $("#build-your-own").show();
+      pizzaCounter++;
+    });
+
+    var newCart = new Cart();
+    var newOrder = new Pizza();
+
+    $("#order").submit(function(event){
+      event.preventDefault();
+
+      newOrder.sizes= $("input:radio[name=size]:checked").val();
+      newOrder.crust = $("input:radio[name=crust]:checked").val();
+      newOrder.cheese = $("#cheese-amount").val();
+      newOrder.sauce= $("input:radio[name=sauce]:checked").val();
+      newOrder.meatToppings=[];
+      $("input:checkbox[name=meats]:checked").each(function(){
+        var selectedMeats = $(this).val();
+        newOrder.meatToppings.push(selectedMeats);
+      });
+
+      newOrder.nonMeatToppings = [];
+      $("input:radio[name=non-meats]:checked").each(function(){
+        var selectedNonMeats = $(this).val();
+        newOrder.nonMeatToppings.push(selectedNonMeats);
+      });
+
+      var price = newOrder.price();
+      $(".total").text(" "+price);
+      newCart.addOrder(newOrder);
+      var total = newCart.countTotal();
+      // $(".total").text(" "+price);
 
 
+      $("#result").show();
+    });
 
 
 

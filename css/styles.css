@@ -97,4 +97,10 @@ padding-top: 2%;
 }
 .selections{
   font-size: 16px;
-  
+}
+#result{
+  display:none;
+}
+.new-pizza{
+  display:none;
+}

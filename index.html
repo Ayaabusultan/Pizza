@@ -75,12 +75,30 @@
 
                 <div class="row selections">
                   <div class="col-md-6">
+
                     <div class="choose-size">
                       <p class="labels">CHOOSE YOUR SIZE</p> <br> <br>
-                      <input type="checkbox" name="size" value="small">small.<br><br>
-                      <input type="checkbox" name="size" value="mediam">mediam.<br><br>
-                      <input type="checkbox" name="size" value="large">large.<br><br>
-                    </div>
+
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="size" value="small">
+                          Small
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="size" value="medium">
+                          Medium
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="size" value="large">
+                          Large
+                        </label>
+                      </div>
+                    </div> <!-- for the choose size -->
+
                   </div> <!-- for the col6 -->
 
                   <div class="col-md-6">
@@ -137,7 +155,7 @@
 
                         <div class="radio">
                           <label>
-                            <input type="radio" name="sauce" value="tomato-sauce" checked>
+                            <input type="radio" name="sauce" value="tomato-sauce">
                             Tomato Sauce
                           </label>
                         </div>
@@ -225,13 +243,21 @@
 
               <!-- <div class="choose-toppings"></div> -->
 
-              <button type="submit" id="submit">Submit Your Order</button>
+              <button type="submit" id="submit">Add to cart</button>
+              <button type="button" class="new-pizza">Add Another Pizza</button>
             </div> <!-- for the build your own -->
 
               <!-- <span class="btn btn-primary" id="add-address">Another address</span> -->
 
               <!-- <button type="submit" class="btn">Add</button> -->
           </form>
+          <div id="result">
+            <p> Your order's Sammary is: <br>
+            Your order has <span class="number"></span> pizza<br>
+            Your Total price is <span class="total"></span>
+
+            </p>
+          </div>
 
     </div>
   </body>
