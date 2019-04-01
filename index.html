@@ -14,12 +14,12 @@
 
         <div class="main-dash">
           <!-- <img src="images/" alt="logo"> -->
-          <p class="main-dash-padding">order online</p>
+          <h1 class="title-props">Pizzeria</h1>
+          <p class="main-dash-padding">Order online</p>
           <p class="main-dash-padding">Menu</p>
-          <p class="main-dash-padding">copons</p>
+          <p class="main-dash-padding">Coupons</p>
           <p class="main-dash-padding">Sign in</p>
-          <p class="main-dash-padding"><a href=""><img src="images/cart1.png" width="30px" height="30px"></a></p>
-          <h1 float="right">Pizzeria</h1>
+          <span class="photo-index"></span><p class="centered"><img src="images/cart1.png" width="30px" height="30px"></p>
         </div>
 
 
@@ -81,7 +81,7 @@
 
                       <div class="radio">
                         <label>
-                          <input type="radio" name="size" value="small">
+                          <input type="radio" name="size" value="small" checked>
                           Small
                         </label>
                       </div>
@@ -107,7 +107,7 @@
 
                       <div class="radio">
                         <label>
-                          <input type="radio" name="crust" value="hand-tossed">
+                          <input type="radio" name="crust" value="hand-tossed" checked>
                           Hand Tossed.
                         </label>
                       </div>
@@ -140,9 +140,9 @@
                       <input type="checkbox" name="cheese" value="cheese" checked>Cheese.<br><br>
 
                       <select class="form-control" id="cheese-amount">
+                        <option>Normal</option>
                         <option>None</option>
                         <option>Light</option>
-                        <option>Normal</option>
                         <option>Extra</option>
                       </select>
 
@@ -155,7 +155,7 @@
 
                         <div class="radio">
                           <label>
-                            <input type="radio" name="sauce" value="tomato-sauce">
+                            <input type="radio" name="sauce" value="tomato-sauce" checked>
                             Tomato Sauce
                           </label>
                         </div>
@@ -190,8 +190,9 @@
 
             <div class="meats-non-meats">
               <div class="row backs-nexts">
-              <!-- <button class="next" id="next-toppings">meet & non-meets</button> -->
                 <button class="back backs-margin" id="back-to-sauce">Back</button>
+                <button type="button" id="add-to-cart">Add to cart</button>
+
               </div>
               <br><br>
               <div class="row  selections">
@@ -243,7 +244,7 @@
 
               <!-- <div class="choose-toppings"></div> -->
 
-              <button type="button" id="add-to-cart">Add to cart</button>
+
               <button type="button" class="new-pizza">Add Another Pizza</button>
               <button type="submit" id="submit">Submit your order</button>
             </div> <!-- for the build your own -->
@@ -255,13 +256,18 @@
           </form>
           <div id="result">
             <br><br><br>
-            <div class="selections"> <strong>Your order's Sammary is:</strong> <br>
-              Your order has <span class=" number"></span> pizza(s)<br>
-              Your Pizza selections are: <br><br> <span class="order-result toppings"></span><br>
-              Your Total price is <span class="total"></span><br><br>
 
+            <div class="selections"> <strong>Your order's Sammary:</strong> <br><br>
+              <div class="summary">
+                Your Cart has <span class=" number"></span> pizza(s)<br>
+                Your selections: <br><br>
+                <div class="order-result">
+                 <span class="toppings"></span></div><br><br>
+                TOTal: $<span class="total"></span><br><br>
+              </div>
             </div>
           </div>
+
           <div id="finish" class="labels">
             <img class="flex-img1" src="" width="700px">
           </div>

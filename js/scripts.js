@@ -7,7 +7,15 @@ function Cart (){
 }
 
 Cart.prototype.addOrder = function(order){
-  this.orders.push(order);
+  //this.orders.push(order);
+  this.orders.push(new Pizza());
+  this.orders[this.orders.length - 1].cost = order.cost;
+  this.orders[this.orders.length - 1].sizes = order.sizes;
+  this.orders[this.orders.length - 1].crust = order.crust;
+  this.orders[this.orders.length - 1].sauce = order.sauce;
+  this.orders[this.orders.length - 1].cheese = order.cheese;
+  this.orders[this.orders.length - 1].meatToppings = order.meatToppings;
+  this.orders[this.orders.length - 1].nonMeatToppings = order.nonMeatToppings;
 }
 
 Cart.prototype.countTotal = function(orders){
@@ -86,6 +94,8 @@ $(document).ready(function(){
   var newCart = new Cart();
   var newOrder = new Pizza();
 
+  $(".photo-index").text("0");
+  
   $("img.delivery").click(function(event){
     event.preventDefault();
     $(".name").show();
@@ -259,18 +269,20 @@ $(document).ready(function(){
       $(".number").text(" "+pizzaCounter+" ");
       $(".toppings").text("");
       newCart.orders.forEach(function(order, index){
-                            $(".toppings").append("Pizza " + (index + 1) + ": "+order.sizes+", "+order.crust+", "
-                            + order.cheese+" cheese, "+order.sauce+", "
-                            + order.meatToppings+", "+ order.nonMeatToppings+", "
-                            + "price is: " + order.price() + "<br><br><br><br>");
+        $(".toppings").append("<span class='labels'>"+ "Pizza " + (index + 1)+"</span>" + ": "+order.sizes+", "+order.crust+", "
+                                + order.cheese+" Cheese, "+order.sauce+", "
+                                + order.meatToppings+", "+ order.nonMeatToppings+", "
+                                + "price is: $" + order.price() + "<br><hr>");
       });
+      $(".photo-index").text(pizzaCounter);
+      $(".total").text(newCart.countTotal());
 
       // $(".toppings").text(" "+newCart.orders[0].sizes+", "+newCart.orders[0].crust+", "+
       //                      newCart.orders[0].cheese+" cheese, "+newCart.orders[0].sauce+", "
       //                     + newCart.orders[0].meatToppings+", "+ newCart.orders[0].nonMeatToppings+", "+
       //                      "price is: "+newCart.orders[0].price());
-      $(".total").text(" " + newCart.countTotal());
-      // $(".total").text(" "+price);
+
+
 
 
       newOrder.sizes="";
@@ -292,9 +304,10 @@ $(document).ready(function(){
       $("#result").hide();
       $(".new-pizza").hide();
       $("#submit").hide();
-      $("#finish").prepend("YOUR ORDER HAS BEEN SUBMITTED.");
+      $("#finish").prepend("YOUR ORDER HAS BEEN SUBMITTED.<br></br>");
       $("#finish").prepend("THANKS FOR CHOOSING US!");
       $(".flex-img1").attr("src","images/main.jpg");
+      $(".photo-index").text("0");
 
 
     // $("#result").show();
