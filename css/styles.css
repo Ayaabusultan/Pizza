@@ -62,9 +62,9 @@ padding-top: 2%;
  #back-to-size{
    display: none;
  }
-.toppings{
+/* .toppings{
    display: none;
- }
+ } */
  .meats-non-meats{
    display: none;
  }
@@ -103,4 +103,28 @@ padding-top: 2%;
 }
 .new-pizza{
   display:none;
+}
+#add-to-cart{
+  display: none;
+}
+#cart{
+  display:none;
+}
+.order-result{
+  font-size: 16px;
+  /* color:red; */
+  border: #7c1024 solid 1px;
+  /* width:100%; */
+  padding: 15px;
+  background-color: #f9f2ef;
+}
+#finish{
+  /* align-items: center; */
+  text-align: center;;
+}
+.flex-img1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* cursor: pointer; */
 }

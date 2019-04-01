@@ -1,18 +1,21 @@
 function Cart (){
   this.orders = [];
-  this.ordersType = ["Delivery" , "Carry Out"];
+//  this.ordersType = ["Delivery" , "Carry Out";
+  this.shippingType = "";
+  this.shippingCost=0;
   this.total =0;
 }
 
 Cart.prototype.addOrder = function(order){
-  this.orders.push(pizza);
+  this.orders.push(order);
 }
 
-Cart.prototype.countTotal = function(){
-  total = 0;
+Cart.prototype.countTotal = function(orders){
+  var total = this.shippingCost;
   this.orders.forEach(function(order){
-    tottal += order.price()
+    total += order.price();
   });
+  return total;
 }
 function Pizza(){
   this.cost=0;
@@ -33,28 +36,32 @@ function Pizza(){
 
 
 Pizza.prototype.price=function(){
-  this.sizes.forEach(function(){
-      if("small"){
-        this.cost += 4;
-      }
-      if("mediam"){
-        this.cost += 4.5;
-      }
-      if("larg"){
-        this.cost += 5;
-      }
+  // this.sizes.forEach(function(){
+  var cost = 0;
+  switch(this.sizes){
+      case "small":
+        cost += 4;
+        break;
+      case "medium":
+        cost += 4.5;
+        break;
+      case "large":
+        cost += 5;
+        break;
+      default:
+  }
+
+
+  this.meatToppings.forEach(function(){
+    cost += 1.5;
   });
-  this.meatToppings.forEach(function(topping){
-    if(topping){
-      this.cost += 1.5;
-    }
-  });
+
   this.nonMeatToppings.forEach(function(topping){
-    if(topping){
-      this.cost += 0.5;
-    }
+    cost += 0.5;
   });
-  return cost;
+
+  this.cost = cost;
+  return this.cost;
 }
 
 
@@ -69,38 +76,50 @@ Pizza.prototype.price=function(){
 //   return this.firstName + " " +this.lastName;
 // }
 
-  function reset(){
-    $("#new-contact")[0].reset();
+  function resetForm(){
+    $("#order")[0].reset();
 }
 
 
 $(document).ready(function(){
+
+  var newCart = new Cart();
+  var newOrder = new Pizza();
 
   $("img.delivery").click(function(event){
     event.preventDefault();
     $(".name").show();
     $("#next").show();
     $(".address").show();
-    $("#submit").hide();
+    $("#add-to-cart").hide();
+    newCart.shippingCost = 5;
+    newCart.shippingType = "Delivery";
+//    newOrder.orderType="delivery";
+
+    // $("#result").append("Your shipping fee is $5"+"<br>"+"Then Your price is "+ newOrder.price() +  ");
+
   });
 
   $("img.to-go").click(function(){
     $(".name").show();
     $(".address").hide();
     $("#next").show();
-    $("#submit").hide();
+    $("#add-to-cart").hide();
+    newCart.shippingCost = 0;
+    newCart.shippingType = "Carry Out";
   });
 
   $(".next").click(function(event){
     event.preventDefault();
-
     $("#build-your-own").show();
     $(".size-crust").show();
     $(".order-type").hide();
     $(".name").hide();
     $(".address").hide();
     $("#next").hide();
-    $("#submit").hide();
+    $("#add-to-cart").hide();
+    $("button#submit").hide();
+
   });
   $("#back-to-start").click(function(event){
     event.preventDefault();
@@ -119,6 +138,7 @@ $(document).ready(function(){
     $(".choose-cheese-sauce").show();
     $("#back-to-size").show();
     $("#submit").hide();
+    $("#add-to-cart").hide();
   });
 
   $("#back-to-size").click(function(event){
@@ -132,6 +152,7 @@ $(document).ready(function(){
     $("#back-to-size").hide();
     $("#next-cheese-sauce").show();
     $("#submit").hide();
+    $("#add-to-cart").hide();
 
   });
 
@@ -141,13 +162,14 @@ $(document).ready(function(){
     $(".name").hide();
     $(".address").hide();
     $("#next").hide();
+    $("#submit").hide();
     $(".size-crust").hide();
     $(".choose-cheese-sauce").hide();
     $("#next-toppings").hide();
     $(".meats-non-meats").show();
     $("#next-toppings").show();
     $("#back-to-sauce").show();
-    $("#submit").show();
+    $("#add-to-cart").show();
 
   });
 
@@ -158,14 +180,14 @@ $(document).ready(function(){
     $(".choose-cheese-sauce").show();
     $(".meats-non-meats").hide();
     $("#back-to-sauce").hide();
-    $("#submit").hide();
+    $("#add-to-cart").hide();
   });
 
 
     $(".delivery").click(function(){
       $(".name").show();
       $("#new-address").show();
-      $("#submit").hide();
+      $("#add-to-cart").hide();
     });
 
     $(".to-go").click(function(event){
@@ -184,18 +206,28 @@ $(document).ready(function(){
 
     var pizzaCounter=0;
 
-    $("button.new-pizza").click(function(event){
+      $("button.new-pizza").click(function(event){
       event.preventDefault();
-      $("#submit").hide();
+      $("#add-to-cart").hide();
       $("#back-to-sauce").hide();
-      $("#build-your-own").show();
-      pizzaCounter++;
+      $("button#submit").hide();
+      $(".meats-non-meats").hide();
+      $("#result").hide();
+      $("button.new-pizza").hide();
+      $(".size-crust").show();
+      $("#back-to-start").show();
+      $("#next-cheese-sauce").show();
+
     });
 
-    var newCart = new Cart();
-    var newOrder = new Pizza();
+    // var newCart = new Cart();
+    // var newOrder = new Pizza();
 
-    $("#order").submit(function(event){
+
+
+
+
+    $("#add-to-cart").click(function(event){
       event.preventDefault();
 
       newOrder.sizes= $("input:radio[name=size]:checked").val();
@@ -209,19 +241,65 @@ $(document).ready(function(){
       });
 
       newOrder.nonMeatToppings = [];
-      $("input:radio[name=non-meats]:checked").each(function(){
+      $("input:checkbox[name=non-meats]:checked").each(function(){
         var selectedNonMeats = $(this).val();
         newOrder.nonMeatToppings.push(selectedNonMeats);
       });
 
-      var price = newOrder.price();
-      $(".total").text(" "+price);
+
       newCart.addOrder(newOrder);
-      var total = newCart.countTotal();
+      $("button.new-pizza").show();
+      $("#submit").show();
+      $("#cart").show();
+      $("#add-to-cart").hide();
+      $("#result").show();
+
+      $(".meats-non-meats").hide();
+      pizzaCounter++;
+      $(".number").text(" "+pizzaCounter+" ");
+      $(".toppings").text("");
+      newCart.orders.forEach(function(order, index){
+                            $(".toppings").append("Pizza " + (index + 1) + ": "+order.sizes+", "+order.crust+", "
+                            + order.cheese+" cheese, "+order.sauce+", "
+                            + order.meatToppings+", "+ order.nonMeatToppings+", "
+                            + "price is: " + order.price() + "<br><br><br><br>");
+      });
+
+      // $(".toppings").text(" "+newCart.orders[0].sizes+", "+newCart.orders[0].crust+", "+
+      //                      newCart.orders[0].cheese+" cheese, "+newCart.orders[0].sauce+", "
+      //                     + newCart.orders[0].meatToppings+", "+ newCart.orders[0].nonMeatToppings+", "+
+      //                      "price is: "+newCart.orders[0].price());
+      $(".total").text(" " + newCart.countTotal());
       // $(".total").text(" "+price);
 
 
-      $("#result").show();
+      newOrder.sizes="";
+      newOrder.crust="";
+      newOrder.cheese="";
+      newOrder.sauce="";
+      newOrder.meatToppings="";
+      newOrder.nonMeatToppings="";
+      resetForm();
+      // we need to hide every thing to display the cart
+    });
+
+
+
+    $("#order").submit(function(event){
+      event.preventDefault();
+      // $(".number").text(" "+(pizzaCounter+1)+" ");
+      $("#cart").hide();
+      $("#result").hide();
+      $(".new-pizza").hide();
+      $("#submit").hide();
+      $("#finish").text("YOUR ORDER HAS BEEN SUBMITTED.");
+      $("#finish").append("THANKS FOR CHOOSING US!");
+      $("flex-img1").attr("src","images/main.jpg");
+
+
+
+
+      // $("#result").show();
     });
 
 
