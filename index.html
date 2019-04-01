@@ -67,15 +67,18 @@
             <div id="build-your-own">
 
               <div class="size-crust">
-                <div class="row backs-nexts">
+                <!-- <div class="row backs-nexts">
                   <button class="back backs-margin" id="back-to-start">Back</button>
                   <button class="next nexts-margin" id="next-cheese-sauce">Cheese & Sauce</button>
-                </div><br><br>
+                </div><br><br> -->
 
 
                 <div class="row selections">
                   <div class="col-md-6">
-
+                    <div class="row backs-nexts">
+                      <button class="back backs-margin" id="back-to-start">Back</button>
+                      <!-- <button class="next nexts-margin" id="next-cheese-sauce">Cheese & Sauce</button> -->
+                    </div><br><br>
                     <div class="choose-size">
                       <p class="labels">CHOOSE YOUR SIZE</p> <br> <br>
 
@@ -102,6 +105,11 @@
                   </div> <!-- for the col6 -->
 
                   <div class="col-md-6">
+                    <div class="row backs-nexts">
+                      <div class="flex-end">
+                        <button class="next nexts-margin" id="next-cheese-sauce">Cheese & Sauce</button>
+                      </div>
+                    </div><br><br>
                     <div class="choose-crust">
                       <p class="labels">CHOOSE YOUR CRUST</p> <br> <br>
 
@@ -128,12 +136,16 @@
 
 
               <div class="choose-cheese-sauce">
-                <div class="row backs-nexts">
+                <!-- <div class="row backs-nexts">
                   <button class="back backs-margin" id="back-to-size">Back</button>
                   <button class="next nexts-margin" id="next-toppings">Meats & Non-Meats</button>
-                </div><br><br>
+                </div><br><br> -->
                 <div class="row  selections">
                   <div class="col-md-6">
+                    <div class="row backs-nexts">
+                      <button class="back backs-margin" id="back-to-size">Back</button>
+                      <!-- <button class="next nexts-margin" id="next-toppings">Meats & Non-Meats</button> -->
+                    </div><br><br>
 
                     <div class="choose-cheese">
                       <p class="labels">Choose your toppings:</p> <br> <br>
@@ -150,6 +162,12 @@
                   </div> <!-- for the col6 -->
 
                     <div class="col-md-6">
+                      <div class="row backs-nexts">
+                        <div class="flex-end">
+                          <button class="next nexts-margin" id="next-toppings">Meats & Non-Meats</button>
+                        </div>
+                      </div><br><br>
+
                       <div class="choose-sauce">
                         <p class="labels">CHOOSE YOUR SAUCE</p> <br> <br>
 
@@ -189,14 +207,19 @@
 
 
             <div class="meats-non-meats">
-              <div class="row backs-nexts">
+              <!-- <div class="row backs-nexts">
                 <button class="back backs-margin" id="back-to-sauce">Back</button>
                 <button type="button" id="add-to-cart">Add to cart</button>
 
-              </div>
-              <br><br>
+              </div> <br><br> -->
+
               <div class="row  selections">
                 <div class="col-md-6 meats-toppings">
+                  <div class="row backs-nexts">
+                    <button class="back backs-margin" id="back-to-sauce">Back</button>
+                    <!-- <button type="button" id="add-to-cart">Add to cart</button> -->
+
+                  </div> <br><br>
                   <div class="form-group">
                     <p class="labels">CHOOSE MEATS</p> <br> <br>
                       <input type="checkbox" name="meats" value="chicken"> Chicken.<br><br>
@@ -206,37 +229,44 @@
                   </div>
                 </div>
                 <div class="non-meats">
-
-                  <div class="col-md-3">
+                  <div class="col-md-6">
+                    <div class="row backs-nexts">
+                      <div class="flex-end">
+                        <button  type="button" id="add-to-cart">Add to cart</button>
+                      </div>
+                    </div> <br><br>
                     <p class="labels">CHOOSE NON-MEATS </p><br><br>
-                    <div class="form-group selections">
+                    <div class="col-lg-6">
 
-                      <input type="checkbox" name="non-meats" value="Hot Sauce">Hot Sauce.<br><br>
-                      <input type="checkbox" name="non-meats" value="Garlic">Garlic.<br><br>
-                      <input type="checkbox" name="non-meats" value="Jalapeno-Peppers">Jalapeno Peppers.<br><br>
-                      <input type="checkbox" name="non-meats" value="Onions">Onions.<br><br>
-                      <input type="checkbox" name="non-meats" value="Banana Peppers">Banana Peppers.<br><br>
-                      <input type="checkbox" name="non-meats" value="Diced Tomatos">Diced Tomatos.<br><br>
-                      <input type="checkbox" name="non-meats" value="Tomatos">Tomatos.<br><br>
-                      <input type="checkbox" name="non-meats" value="Black Olives">Black Olives.<br><br>
-                      <input type="checkbox" name="non-meats" value="red Peppers">red Peppers.<br><br>
-                      <input type="checkbox" name="non-meats" value="Spinach">Spinach.<br><br>
+                      <div class="form-group selections">
+
+                        <input type="checkbox" name="non-meats" value="Hot Sauce">Hot Sauce.<br><br>
+                        <input type="checkbox" name="non-meats" value="Garlic">Garlic.<br><br>
+                        <input type="checkbox" name="non-meats" value="Jalapeno-Peppers">Jalapeno Peppers.<br><br>
+                        <input type="checkbox" name="non-meats" value="Onions">Onions.<br><br>
+                        <input type="checkbox" name="non-meats" value="Banana Peppers">Banana Peppers.<br><br>
+                        <input type="checkbox" name="non-meats" value="Diced Tomatos">Diced Tomatos.<br><br>
+                        <input type="checkbox" name="non-meats" value="Tomatos">Tomatos.<br><br>
+                        <input type="checkbox" name="non-meats" value="Black Olives">Black Olives.<br><br>
+                        <input type="checkbox" name="non-meats" value="red Peppers">red Peppers.<br><br>
+
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      <br><br><br><br>
-                      <input type="checkbox" name="non-meats" value="Green Peppers">Green Peppers.<br><br>
-                      <input type="checkbox" name="non-meats" value="Mushrooms">Mushrooms.<br><br>
-                      <input type="checkbox" name="non-meats" value="Green Olives">Green Olives.<br><br>
-                      <input type="checkbox" name="non-meats" value="Pineapple">Pineapple.<br><br>
-                      <input type="checkbox" name="non-meats" value="Shredded Provolone Cheese">Shredded Provolone Cheese.<br><br>
-                      <input type="checkbox" name="non-meats" value="Shredded Parmesan Asiago">Shredded Parmesan Asiago.<br><br>
-                      <input type="checkbox" name="non-meats" value="Feta Cheese">Feta Cheese.<br><br>
-                      <input type="checkbox" name="non-meats" value="Cheddar Cheese">Cheddar Cheese.<br><br>
-                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <!-- <br><br> -->
+                        <input type="checkbox" name="non-meats" value="Spinach">Spinach.<br><br>
+                        <input type="checkbox" name="non-meats" value="Green Peppers">Green Peppers.<br><br>
+                        <input type="checkbox" name="non-meats" value="Mushrooms">Mushrooms.<br><br>
+                        <input type="checkbox" name="non-meats" value="Green Olives">Green Olives.<br><br>
+                        <input type="checkbox" name="non-meats" value="Pineapple">Pineapple.<br><br>
+                        <input type="checkbox" name="non-meats" value="Shredded Provolone Cheese">Shredded Provolone Cheese.<br><br>
+                        <input type="checkbox" name="non-meats" value="Shredded Parmesan Asiago">Shredded Parmesan Asiago.<br><br>
+                        <input type="checkbox" name="non-meats" value="Feta Cheese">Feta Cheese.<br><br>
+                        <input type="checkbox" name="non-meats" value="Cheddar Cheese">Cheddar Cheese.<br><br>
+                      </div>
+                    </div> <!-- for the col311 -->
                   </div> <!-- for the col6 -->
-
                 </div> <!-- for the non-meats -->
               </div>   <!-- for the row -->
             </div>   <!-- for the meats and non meats -->
@@ -246,6 +276,7 @@
 
 
               <button type="button" class="new-pizza">Add Another Pizza</button>
+
               <button type="submit" id="submit">Submit your order</button>
             </div> <!-- for the build your own -->
 
@@ -262,8 +293,10 @@
                 Your Cart has <span class=" number"></span> pizza(s)<br>
                 Your selections: <br><br>
                 <div class="order-result">
-                 <span class="toppings"></span></div><br><br>
-                TOTal: $<span class="total"></span><br><br>
+                  <span class="toppings"></span>
+                  TOTal: $<span class="total"></span>
+                </div><br><br>
+                <!-- TOTal: $<span class="total"></span><br><br> -->
               </div>
             </div>
           </div>

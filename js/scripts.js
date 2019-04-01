@@ -95,7 +95,7 @@ $(document).ready(function(){
   var newOrder = new Pizza();
 
   $(".photo-index").text("0");
-  
+
   $("img.delivery").click(function(event){
     event.preventDefault();
     $(".name").show();
