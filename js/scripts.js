@@ -292,14 +292,12 @@ $(document).ready(function(){
       $("#result").hide();
       $(".new-pizza").hide();
       $("#submit").hide();
-      $("#finish").text("YOUR ORDER HAS BEEN SUBMITTED.");
-      $("#finish").append("THANKS FOR CHOOSING US!");
-      $("flex-img1").attr("src","images/main.jpg");
+      $("#finish").prepend("YOUR ORDER HAS BEEN SUBMITTED.");
+      $("#finish").prepend("THANKS FOR CHOOSING US!");
+      $(".flex-img1").attr("src","images/main.jpg");
 
 
-
-
-      // $("#result").show();
+    // $("#result").show();
     });
 
 
